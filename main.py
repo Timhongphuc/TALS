@@ -1,5 +1,3 @@
-import datetime
-
 import streamlit as st
 import os
 import psycopg
@@ -62,7 +60,6 @@ if link:
     st.button("Rerun")
 
     with psycopg.connect(conn_string) as conn:
-        try:
             with conn.cursor() as cur:
                 cur.execute("""SELECT hyperlink FROM "main-link-storage" WHERE hyperlink = %s""", (link,)) #?
                 check1 = cur.fetchone() # Response is ALWAYS a tuple somehow...
@@ -77,33 +74,34 @@ if link:
                     print(f"The magic sentence is: {magic_sentence}")
 
 
-        except:
+                else:
 
-            sentence = f"{random.choice(starter)} {random.choice(adj)} {random.choice(nouns)} {random.choice(verbs)} {random.choice(adv)}"
+                    sentence = f"{random.choice(starter)} {random.choice(adj)} {random.choice(nouns)} {random.choice(verbs)} {random.choice(adv)}"
 
-            try:
-                with psycopg.connect(conn_string) as conn:
-                    print("Connection established")
+                    try:
+                        with psycopg.connect(conn_string) as conn:
+                            print("Connection established")
 
-                    with conn.cursor() as cur:
-                        # Insert a link
-                        cur.execute("""INSERT INTO "main-link-storage" (hyperlink, "uniqueSentence", uuid, date) VALUES (%s, %s, %s, %s)""", (link, sentence, uuid.uuid4(), datetime.now()))
-                        print("Added a link to library")
+                            with conn.cursor() as cur:
+                                # Insert a link
+                                cur.execute("""INSERT INTO "main-link-storage" (hyperlink, "uniqueSentence", uuid, date) VALUES (%s, %s, %s, %s)""", (link, sentence, uuid.uuid4(), datetime.now()))
+                                print("Added a link to library")
 
-                        recently_added = sentence
+                                recently_added = sentence
 
-                        cur.execute("""SELECT "uniqueSentence"
-                                       FROM "main-link-storage"
-                                       WHERE "uniqueSentence" = %s""", (recently_added,))  # ? - I URGENTLY NEED TO ATTEND SQL 101 (#2)
-                        found_sentence = cur.fetchone()
-                        magic_sentence = found_sentence[0]
+                                cur.execute("""SELECT "uniqueSentence"
+                                               FROM "main-link-storage"
+                                               WHERE "uniqueSentence" = %s""", (recently_added,))  # ? - I URGENTLY NEED TO ATTEND SQL 101 (#2)
+                                found_sentence = cur.fetchone()
+                                magic_sentence = found_sentence[0]
 
-                        st.markdown("## The link got indexed and added to the public library")
-                        st.markdown("### Your magic sentence is:")
-                        st.markdown(f"### <u>{sentence}</u>", unsafe_allow_html=True)
+                                st.markdown("## The link got indexed and added to the public library")
+                                st.markdown("### Your magic sentence is:")
+                                st.markdown(f"### <u>{sentence}</u>", unsafe_allow_html=True)
 
-            except Exception as e:
-                print("Connection failed.")
-                print(e)
 
-sentence = ""
+                                sentence = ""
+
+                    except Exception as e:
+                        print("Connection failed.")
+                        print(e)
