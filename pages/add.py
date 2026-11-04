@@ -39,7 +39,7 @@ adv = (
 # 25^4 combinations of sentences are possible = 390.625 possible sentences (for now in v1)
 
 
-st.markdown("# [Tim's](https://www.timhongphuc.de/) amazing link shortener 1.0")
+st.markdown("# TALS add links")
 
 link = st.text_input("Enter the link that needs to be shortened", type="url", placeholder="Link")
 
@@ -57,7 +57,7 @@ if link:
     time.sleep(1)
     my_bar.empty()
 
-    st.button("Rerun")
+    #st.button("Rerun")
 
     with psycopg.connect(conn_string) as conn:
             with conn.cursor() as cur:
@@ -105,3 +105,6 @@ if link:
                     except Exception as e:
                         print("Connection failed.")
                         print(e)
+
+
+                        #IMPORTANT: ADD FEATURE: LINKS ALREADY IN DB COUNTER ON THE ADD LINKS PAGE ON STREAMLIT!!!
