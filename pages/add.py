@@ -39,7 +39,7 @@ adv = (
 # 25^4 combinations of sentences are possible = 390.625 possible sentences (for now in v1)
 
 
-st.markdown("# TALS add links")
+st.markdown("# TALS Add Links")
 
 link = st.text_input("Enter the link that needs to be shortened", type="url", placeholder="Link")
 
