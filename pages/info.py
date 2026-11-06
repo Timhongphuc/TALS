@@ -8,6 +8,10 @@ st.markdown("TALS - Alpha 1.0")
 st.markdown("Links: [TALS GitHub](https://github.com/Timhongphuc/TALS) | [TALS Seach]() | [TALS Add Links]()")
 st.markdown("---")
 
+st.markdown("### What is does")
+st.markdown("In general the workflow is easy. Entered links are getting saved in the relational Postgres database. Whenever you're then trying to find a link, enter the connected/appropriate magic sentence and there you go. It's nearly the same thing that happens but just in reverse :)")
+st.markdown("---")
+
 st.markdown("## About this project")
 st.markdown("### Why I've built this")
 st.markdown("The initial idea for this project appeared to me in September of 2026. ")
@@ -19,3 +23,5 @@ st.markdown("A practical and simple solution to an annoying problem which appear
 st.markdown("### Where other alternative services fail")
 st.markdown("From my viewpoint link shorteners such as bit.ly or Grabify are sketchy, they get used in order to grab your IP (and sometimes even your geolocation).")
 st.markdown("QR Codes on the other hand are hard to share. You have to carry them around as images or print them on stickers which is, of course, tedious.")
+st.markdown("### How to use it")
+st.markdown("Using TALS (Tim's amazing link shortener) is really easy. Just enter the link you want to convert to a random sentence on the Add page. Consequently, if you're searching for a link on the Search page, just enter the sentence and watch the magic happen.")
