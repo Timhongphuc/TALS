@@ -95,7 +95,7 @@ if link:
                                 found_sentence = cur.fetchone()
                                 magic_sentence = found_sentence[0]
 
-                                st.markdown("## The link got indexed and added to the public library")
+                                st.markdown("### The link got indexed and added to the public library")
                                 st.markdown("### Your magic sentence is:")
                                 st.markdown(f"### <u>{sentence}</u>", unsafe_allow_html=True)
 
