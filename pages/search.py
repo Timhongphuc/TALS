@@ -47,3 +47,5 @@ if sentence:
 
                 else:
                     st.markdown("## This magic sentence does not exist")
+
+#ADD THE OPTION FOR THE USER TO DIRECTLY OPEN THE LINK IN A NEW TAB OR AT LEAST COPY IT!!!
