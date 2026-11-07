@@ -8,11 +8,9 @@ st.markdown("TALS - Alpha 1.0")
 st.markdown("Links: [TALS GitHub](https://github.com/Timhongphuc/TALS) | [TALS Seach]() | [TALS Add Links]()")
 st.markdown("---")
 
+st.markdown("## About this project")
 st.markdown("### What is does")
 st.markdown("In general the workflow is easy. Entered links are getting saved in the relational Postgres database. Whenever you're then trying to find a link, enter the connected/appropriate magic sentence and there you go. It's nearly the same thing that happens but just in reverse :)")
-st.markdown("---")
-
-st.markdown("## About this project")
 st.markdown("### Why I've built this")
 st.markdown("The initial idea for this project appeared to me in September of 2026. ")
 st.markdown("It was an ordinary day in school. Me and my friends were sitting in chemistry class as my teacher tried sharing a YouTube link with us.")
